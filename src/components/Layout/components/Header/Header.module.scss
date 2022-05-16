@@ -8,5 +8,178 @@
 .inner{
     height:100%;
     width: var(--default-layout-width);
-    background-color:#ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}   
+
+.logo {
+    cursor: pointer;
+}
+
+.search{
+    display: flex;
+    justify-content: center;
+    width: 360px;
+    height: 40px;
+    background-color: #efefef;  
+    border-radius: 96px;
+    padding-left: 16px ;
+    position: relative;
+    border: 1.5px solid transparent;
+    .search-input{
+        flex: 1;
+        width: 300px;
+        height: 38px;
+        border: none;
+        background-color: #efefef; 
+        padding: 12px 0px ;
+        color: #4d4545;
+        outline: none;
+        caret-color: var(--primary);
+        &:not(:placeholder-shown)~.search-btn {
+            color: rgb(0, 0, 0);
+        }
+    } 
+    .search-btn{
+        width: 52px;
+        height: 100%;
+        border: none;
+        border-top-right-radius: 92px;
+        border-bottom-right-radius: 92px;
+        cursor: pointer;
+        color: #bdbaba;
+        &:hover{
+            background-color: #e3e3e3;
+        } 
+        .search-btn-icon{
+            font-size: 1.8rem;
+        }
+        &:active{
+            background-color: #c6c6c6;
+        }
+    }
+
+    &::after{
+        content: '';
+        position: absolute;
+        height: 28px;
+        top: 5px;
+        right: 52px;
+        width: 1px;
+        background-color: #b09e9e;
+    }
+
+    &:focus-within{
+        border-color:  #333;
+    }
+    
+    .input-clear,
+    .input-loading{
+        border: none;
+        position: absolute;
+        right: 60px;
+        // top: 12px;
+        transform: translateY(12px);
+        cursor: pointer;
+        color: #bdbaba;
+    }
+    .input-loading{
+        display: none;
+    }
+}
+.header-right{
+    display: flex;
+    position: relative;
+    .search-clear{
+        width: 40px;
+        height: 20px;
+    }
+    .text{
+        padding: 5px 10px;
+        font-size: 1.8rem;
+        font-weight: 500;
+    }
+    .login{
+        cursor: pointer;
+        background-color: var(--primary);
+        border-radius: 3px;
+        display: flex;
+        justify-content: center;
+        padding: 0 15px;
+        color:  var(-white);
+        &:hover{
+            background-color: rgb(230, 95, 95);
+            border-radius: 3px;
+        }
+    }
+    .upload{
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+    .header-see-more{
+        display: flex;
+        cursor: pointer;
+        position: relative;
+        width: 30px;
+        &:hover{
+            .header-menu{
+                display: block;
+            }
+        }
+        .header-see-more-icon{
+            position: absolute;
+            top: 4px;
+            
+        }
+        .header-menu{
+            position: absolute;
+            width: 200px;
+            top: 40px;
+            right: -3px;
+            background-color: var(-white);
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            border-radius: 10px;
+            display: none;
+            animation-delay: 1s;
+            ul li{
+                list-style: none;
+                line-height: 2.8rem;
+                margin-top: 10px;
+                margin-bottom: 10px;
+                &:hover{
+                    background-color: #ecd9d9;
+                }
+            }
+            .header-menu-icon{
+                font-size: 15px;
+                max-width: 15px;
+                padding-left: 5px;
+            }
+            &::after{
+                content: '';
+                position: absolute;
+                top: -15px;
+                right: 5px;
+                width: 0;
+                height: 0;
+                border-left: 15px solid transparent;
+                border-right: 15px solid transparent;
+                border-bottom: 20px solid rgb(255, 255, 255);
+            }
+            &::before{
+                content: '';
+                position: absolute;
+                top: -15px;
+                right: 0px;
+                width: 200px;
+                height: 20px;
+            }
+        }
+    }
+    
 }
